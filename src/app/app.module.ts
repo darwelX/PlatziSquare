@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   //en este array se agregan los componentes propios que conforman el modulo
@@ -12,7 +13,9 @@ import { AppComponent } from './app.component';
 
   //se importa los modulas nativos de angular que va a necesitar la aplicacion
   imports: [
-    BrowserModule
+    BrowserModule,
+    //necesario para usar el data binding bidireccional
+    FormsModule
   ],
 
   //se declaran los servicios propios que se van a necesitar en la aplicacion
