@@ -7,23 +7,19 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PlatziSquare';
-  listo = true;
-  boton = 'btn';
-  contador = 0;
-  nombre="";
-  genero = "Mr";
+  lugares = [
+    {activo: true, nombre: 'Floreria Gardemia'},
+    {activo: true, nombre: 'Donas Pasadita'},
+    {activo: true, nombre: 'Veterinaria Huellitas Felices'},
+    {activo: true, nombre: 'Sushi Roll'},
+    {activo: true, nombre: 'Hotel la Gracia'},
+    {activo: true, nombre: 'Zapateria el clavo'},
+  ]
   constructor(){
-    setTimeout(()=>{
-      this.listo = false;
-    }, 3000)
   }
 
-  sumar(){
-    this.contador++;
-  }
-
-  set(event){
-    console.log('hola');
-    this.contador = event.target.value;
+  quitar(_index){
+    console.log(_index);
+    this.lugares[_index].activo = false;
   }
 }
