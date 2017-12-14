@@ -6,9 +6,17 @@
 }
 ul{
   list-style: none;
+  color: black;
+  font-family: Arial;
+  width: 20%;
+  background-color: blanchedalmond;
 }
-ul li {
+li {
   cursor: pointer;
   text-decoration: underline;
-
+  text-decoration-color: blue;
+  padding: .3em;
+}
+span{
+  background-color: rgba(230,200,200,.7);
 }

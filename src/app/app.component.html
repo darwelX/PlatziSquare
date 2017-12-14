@@ -2,7 +2,7 @@
   <!-- cuando hay dos directivas estructurales se separan con un <ng-container></ng-container> -->
   <ng-container *ngFor="let lugar of lugares; let i = index">
     <!-- directiva estructural *ngIf junto con la libreria ngFor -->
-    <li *ngIf="lugar.activo" (click)="quitar(i)">{{lugar.nombre}}</li>
+    <li *ngIf="lugar.activo" (click)="quitar(i)"><span>{{lugar.nombre}}</span></li>
   </ng-container>
 </ul>
 
