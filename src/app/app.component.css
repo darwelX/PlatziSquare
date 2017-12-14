@@ -4,3 +4,11 @@
 .text-center{
   text-align: center;
 }
+ul{
+  list-style: none;
+}
+ul li {
+  cursor: pointer;
+  text-decoration: underline;
+
+}
