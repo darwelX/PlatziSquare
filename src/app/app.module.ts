@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   //en este array se agregan los componentes propios que conforman el modulo
@@ -15,7 +16,11 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     //necesario para usar el data binding bidireccional
-    FormsModule
+    FormsModule,
+    // modulo de google maps
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD_WGF3n-7hURPte4-4LXr7uSEHZJXXAKg'
+    })
   ],
 
   //se declaran los servicios propios que se van a necesitar en la aplicacion
