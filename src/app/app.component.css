@@ -13,3 +13,15 @@ agm-map {
   margin: 0 auto;
   text-align: center;
 }
+
+ul > li.numero-par{
+  background-color: aliceblue;
+  color: blue;
+}
+ul > li.numero-impar{
+  background-color: white;
+  color: black;
+}
+.gray{
+  color: gray!important;
+}
