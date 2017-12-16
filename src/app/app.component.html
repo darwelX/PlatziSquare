@@ -1,36 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    <!-- String Interpolation -->
-    Vienvenido a {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<div class="text-center">
-  <hr>
-  <h3>{{contador}}</h3>
-  <!-- propertie binding [] -->
-  <button [disabled]="listo" [class]='boton'>Click me!</button>
-  <!-- event binding () -->
-  <input type="text" name="contador" (keyup)='set($event)' value="0">
-  <button (click)='sumar()'>Plus Plus</button>
-  <hr>
-  <!-- Two way data Biding [()] en angular 4 hay que importar el modulo FormsModule -->
-  <input type="radio" name="mr" id="mr" [(ngModel)]='genero' value="Mr"> Mr.
-  <input type="radio" name="ms" id="mr" [(ngModel)]='genero' value="Ms"> Ms.
-  <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre">
-  <p>Tu nombre es {{genero}}. {{nombre}}</p>
-</div>
-<h2>Aqui hay algunos enlaces para comenzar: </h2>
-  <ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
 
