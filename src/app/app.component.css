@@ -4,3 +4,12 @@
 .text-center{
   text-align: center;
 }
+
+agm-map {
+  height: 300px;
+  width: 789px;
+  display: flex;
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+}
