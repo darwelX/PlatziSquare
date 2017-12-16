@@ -7,23 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PlatziSquare';
-  listo = true;
-  boton = 'btn';
-  contador = 0;
-  nombre="";
-  genero = "Mr";
-  constructor(){
-    setTimeout(()=>{
-      this.listo = false;
-    }, 3000)
-  }
-
-  sumar(){
-    this.contador++;
-  }
-
-  set(event){
-    console.log('hola');
-    this.contador = event.target.value;
-  }
+  lat:number = 8.2152125;
+  lng:number = -72.2589104;
 }
