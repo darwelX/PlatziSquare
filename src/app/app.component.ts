@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PlatziSquare';
-  lat:number = 8.2152125;
-  lng:number = -72.2589104;
+  lat:number = 8.215178;
+  lng:number = -72.257524;
+
+  lugares = [
+    {activo: true, nombre: "Pizzeria y Hamburguesas Don Pedrito"},
+    {activo: false, nombre: "Veterinaria Kaninos"},
+    {activo: true, nombre: "Restaurant la Cotorra"},
+    {activo: true, nombre: "El Universo del Churro"},
+  ]
 }
