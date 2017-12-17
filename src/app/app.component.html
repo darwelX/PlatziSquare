@@ -12,6 +12,14 @@
 <ul>
     <ng-container *ngFor="let lugar of lugares; let i = index">
         <!-- ngClass es directiva de atributo por eso se usa los corchetes -->
-        <li  [ngClass]="{'numero-par': (i+1) % 2 == 0, 'numeno-impar': (i+1) % 2 != 0, 'gray': !lugar.activo}">{{lugar.nombre}}</li>
+        <!-- uso de la directiva de propiedad [ngSwitch] -->
+        <li  [ngClass]="{'numero-par': (i+1) % 2 == 0, 'numeno-impar': (i+1) % 2 != 0, 'gray': !lugar.activo}"
+         [ngSwitch]="lugar.cercania" [resaltar]="lugar.plan">
+            {{lugar.nombre}} - 
+            <!-- uso de la diretiva de estructural *ngSwitchCase -->
+            <span *ngSwitchCase="1" [ngStyle]="{'color': 'green'}">Muy Cercano</span>
+            <span *ngSwitchCase="2" [ngStyle]="{'color': 'blue'}">Cercano</span>
+            <span *ngSwitchCase="3" [ngStyle]="{'color': 'black'}">Lejano</span>
+        </li>
     </ng-container>
 </ul>
