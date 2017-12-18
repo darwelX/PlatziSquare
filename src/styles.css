@@ -32,6 +32,10 @@ body{
      opacity: .8;
   }
   100%{
-     opacity: 1;
+     opacity: .1;
   }
+}
+
+.contar-clicks{
+  cursor: pointer;
 }
