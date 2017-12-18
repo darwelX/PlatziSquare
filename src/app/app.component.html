@@ -11,10 +11,13 @@
 </ul>
 <ul>
     <ng-container *ngFor="let lugar of lugares; let i = index">
+        
         <!-- ngClass es directiva de atributo por eso se usa los corchetes -->
         <!-- uso de la directiva de propiedad [ngSwitch] -->
         <li  [ngClass]="{'numero-par': (i+1) % 2 == 0, 'numeno-impar': (i+1) % 2 != 0, 'gray': !lugar.activo}"
-         [ngSwitch]="lugar.cercania" [resaltar]="lugar.plan">
+         [ngSwitch]="lugar.cercania" [resaltar]="lugar.plan"
+         class="contar-clicks" contar-clicks>
+         <!-- como la directiva no requiere parametros no se coloca corchetes -->
             {{lugar.nombre}} - 
             <!-- uso de la diretiva de estructural *ngSwitchCase -->
             <span *ngSwitchCase="1" [ngStyle]="{'color': 'green'}">Muy Cercano</span>
