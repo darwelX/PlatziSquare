@@ -13,18 +13,16 @@ export class ResaltarDirective implements OnInit{
   }
   // se declara el atributo plan el cual es un atributo de entrada de la directiva
   @Input('resaltar') plan : string = ''
-  @Input('resaltar') saludo : string = ''
   ngOnInit(){
-    console.log(this.saludo);
      if(this.plan === 'pagado'){
         //this.renderer.setStyle(elementoNativo, propiedad, valor)
         this.renderer.setStyle(this.elRef.nativeElement, 'background-color', 'yellow');
         this.renderer.setStyle(this.elRef.nativeElement, 'font-weight', 'bold');
-        this.renderer.setStyle(this.elRef.nativeElement, 'opacity', '0');
-        this.renderer.setStyle(this.elRef.nativeElement, 'animation-name', 'parpadeo');
-        this.renderer.setStyle(this.elRef.nativeElement, 'animation-duration', '3s');
-        this.renderer.setStyle(this.elRef.nativeElement, 'animation-iteration-count', '2');
-        this.renderer.setStyle(this.elRef.nativeElement, 'animation-fill-mode', 'forwards');
+        // this.renderer.setStyle(this.elRef.nativeElement, 'opacity', '0');
+        // this.renderer.setStyle(this.elRef.nativeElement, 'animation-name', 'parpadeo');
+        // this.renderer.setStyle(this.elRef.nativeElement, 'animation-duration', '3s');
+        // this.renderer.setStyle(this.elRef.nativeElement, 'animation-iteration-count', '2');
+        // this.renderer.setStyle(this.elRef.nativeElement, 'animation-fill-mode', 'forwards');
      }
   }
 }
