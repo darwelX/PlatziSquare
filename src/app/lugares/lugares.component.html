@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="17">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        </agm-map>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-8">
+        <h2>Lugares Cercanos</h2>
+        <ul class="list-group">
+            <ng-container *ngFor="let lugar of lugares">
+                <!-- ngStyle es directiva de atributo por eso se usa los corchetes -->
+                <li *ngIf="lugar.activo" class="list-group-item">{{lugar.nombre}}</li>
+            </ng-container>
+        </ul>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4">
+        <h2>Destacados</h2>
+    </div>
+</div>
