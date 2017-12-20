@@ -14,7 +14,7 @@ import { LugaresComponent } from './lugares/lugares.component';
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
   {path: 'lugares', component: LugaresComponent},
-  {path: 'detalles', component: DetalleComponent},
+  {path: 'detalles/:id', component: DetalleComponent},
   {path: 'lugares', component: LugaresComponent}
 ];
 
