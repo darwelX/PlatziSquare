@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+/* body, h1, h2, h3, h4, h5{
+  color: white;
+} */
+.detalles{
+  color: black;
+  font-weight: normal;
+}
+
+.fondo-contacto{
+  background-image: url('assets/background.jpg');
+  background-repeat: no-repeat;
+  background-size: 1155px 700px;
+  padding: 1em;
+}
+
+.fondo-panel{
+  background-color: rgba(255,255,255,.7);
+}
+
+.contacto-panel-title {
+  font-weight: bold;
+  left: 5px;
+  position: relative;
+  top: -5px;
+  padding-right: 1em;
+}
+
+.panel-head-icon-lf{
+  padding-left: .5em;
+}
+
+div.datos a{
+  text-decoration: none;
+  color: #333;
+}
