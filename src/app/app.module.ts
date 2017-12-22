@@ -9,13 +9,15 @@ import { AgmCoreModule } from '@agm/core';
 import {Routes, RouterModule} from '@angular/router';
 import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
   {path: 'lugares', component: LugaresComponent},
   {path: 'detalles/:id', component: DetalleComponent},
-  {path: 'lugares', component: LugaresComponent}
+  {path: 'lugares', component: LugaresComponent},
+  {path: 'contacto', component: ContactoComponent}
 ];
 
 @NgModule({
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DetalleComponent,
-    LugaresComponent
+    LugaresComponent,
+    ContactoComponent
   ],
 
   //se importa los modulas nativos de angular que va a necesitar la aplicacion
