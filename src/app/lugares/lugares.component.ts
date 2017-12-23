@@ -11,7 +11,11 @@ export class LugaresComponent implements OnInit {
   lng:number = -72.257524;
   lugares: any = null;
   constructor(private lugaresServices: LugaresService) { 
-    this.lugares = lugaresServices.getLugares();
+    lugaresServices.getLugares()
+    .valueChanges().subscribe(lugares => {
+      console.log(lugares)
+      this.lugares = lugares;
+    });
   }
 
   ngOnInit() {
