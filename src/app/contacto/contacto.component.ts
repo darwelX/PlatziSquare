@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
-  classFondo = 'fondo-contacto';
   constructor() { }
 
   ngOnInit() {
