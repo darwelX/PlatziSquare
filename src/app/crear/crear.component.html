@@ -1,0 +1,49 @@
+<div class="col-xs-12 col-sm-12 col-md-12">
+  <div class="well">
+    <a routerLink="/lugares">Lugares</a> / Crear
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title contacto-panel-title">
+          Crear Nuevo <i class="fa fa-file panel-head-icon-lf"></i>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="lugar.nombre">
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descrición</label>
+            <input type="text" name="descripcion" id="deccripcion" class="form-control" [(ngModel)]="lugar.descripcion">
+          </div>
+          <div class="form-group">
+            <label for="distanci">Distancia Km.</label>
+            <input type="number" name="distancia" id="distancia" class="form-control" [(ngModel)]="lugar.distancia">
+          </div>
+          <div class="form-group">
+            <label for="cercania">Cercania Km</label>
+            <input type="number" name="cercania" id="cercania" class="form-control" [(ngModel)]="lugar.cercania">
+          </div>
+          <div class="form-group">
+            <label for="plan">Plan</label>
+            <select name="plan" id="plan" class="form-control" [(ngModel)]="lugar.plan">
+              <option value="pagado">Pagado</option>
+              <option value="gratuito">Gratuito</option>
+            </select>
+          </div>
+          <hr>
+          <div class="form-group text-center">
+            <button class="btn btn-success" (click)="crear()">Crear Nuevo</button>
+            <button class="btn btn-default" routerLink="/lugares">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
