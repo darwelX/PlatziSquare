@@ -16,13 +16,7 @@ export class DetalleComponent implements OnInit {
     // console.log(this.route.snapshot.params['id']);
     // console.log(this.route.snapshot.queryParams['action']);
     this.id = this.route.snapshot.params['id'];
-    lugaresServices.getLugares()
-    .valueChanges().subscribe(lugares => {
-      console.log(lugares)
-      this.lugares = lugares;
-      this.lugar = lugaresServices.buscarLugar(this.id, this.lugares);
-    });
-    
+    this.lugar = lugaresServices.buscarLugar(this.id);
   }
 
   ngOnInit() {
