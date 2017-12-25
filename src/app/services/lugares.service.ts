@@ -1,26 +1,31 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import { AngularFireDatabase } from'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class LugaresService {
   lugares: any = [];
+
   public getLugares(){
     return this.afDB.list('lugares/');
   }
 
-  public buscarLugar(id){
-    return this.lugares.filter((lugar)=>{return lugar.id == id})[0] || null;
+  public getLugar(id){
+    return this.afDB.object('lugares/'+id);
   }
 
   public guardarLugar(lugar){
     // console.log('guardando',lugar);
     this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
   }
-  constructor(private afDB: AngularFireDatabase) { 
-    this.getLugares()
-    .valueChanges().subscribe(lugares => {
-      // console.log('aqui',lugares);
-      this.lugares = lugares;
-    });
+
+  public obtenerGeoData(direccion){
+    return this.http.get('http://maps.google.com/maps/api/geocode/json?address='+direccion);
+  }
+
+  constructor(private afDB: AngularFireDatabase, private http: Http) { 
+
   }
 
 }
