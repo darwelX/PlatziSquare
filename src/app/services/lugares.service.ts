@@ -16,10 +16,13 @@ export class LugaresService {
   }
 
   public guardarLugar(lugar){
-    // console.log('guardando',lugar);
     this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
   }
 
+  public updateLugar(lugar){
+    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+  }
+  
   public obtenerGeoData(direccion){
     return this.http.get('http://maps.google.com/maps/api/geocode/json?address='+direccion);
   }
