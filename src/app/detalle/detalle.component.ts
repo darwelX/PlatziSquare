@@ -10,13 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 export class DetalleComponent implements OnInit {
   id = null;
   lugar: any = {};
-  lugares: any = null;
   //en la clase ActivateRoute se resiven parametros
   constructor(private route: ActivatedRoute, private lugaresServices: LugaresService) { 
     // console.log(this.route.snapshot.params['id']);
     // console.log(this.route.snapshot.queryParams['action']);
     this.id = this.route.snapshot.params['id'];
-    this.lugar = lugaresServices.buscarLugar(this.id);
+    this.lugaresServices.getLugar(this.id)
+      .valueChanges().subscribe(lugar => {
+          this.lugar = lugar;
+        });
   }
 
   ngOnInit() {
