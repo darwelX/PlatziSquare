@@ -9,11 +9,18 @@
 <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-8">
         <h2>Lugares Cercanos</h2>
-        <div class="btn-crear"> <a routerLink="/crear" class="btn btn-primary crear">Crear</a></div>
+        <div class="btn-crear"> <a routerLink="/crear" [queryParams]="{action: 'new'}" class="btn btn-primary crear">Crear Nuevo Lugar</a></div>
         <ul class="list-group">
             <ng-container *ngFor="let lugar of lugares">
                 <!-- ngStyle es directiva de atributo por eso se usa los corchetes -->
-                <a routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}"><li *ngIf="lugar.activo" class="list-group-item">{{lugar.nombre}}</li></a>
+                <li *ngIf="lugar.activo" class="list-group-item">
+                   <a routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}">
+                     {{lugar.nombre}}
+                   </a>
+                   <a routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
+                     <i class="fa fa-pencil"></i>
+                   </a>
+                </li>
             </ng-container>
         </ul>
     </div>
