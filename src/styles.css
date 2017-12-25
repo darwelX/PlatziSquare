@@ -38,3 +38,7 @@ div.datos a{
 .btn-crear{
   margin: 0.5em 0;
 }
+
+agm-map {
+  height: 300px;
+}
