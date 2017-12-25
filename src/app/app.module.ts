@@ -8,7 +8,8 @@ import {Routes, RouterModule} from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from'angularfire2/database';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { HttpModule } from '@angular/http';
 
 import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path: 'detalles/:id', component: DetalleComponent},
   {path: 'lugares', component: LugaresComponent},
   {path: 'crear', component: CrearComponent},
+  {path: 'crear/:id', component: CrearComponent},
   {path: 'contacto', component: ContactoComponent}
 ];
 
@@ -50,7 +52,8 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase, 'PlaziSquare'), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpModule
   ],
 
   //se declaran los servicios propios que se van a necesitar en la aplicacion
