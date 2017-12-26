@@ -10,7 +10,8 @@ export class LugaresService {
   END_POINT = 'https://platzisquare-1513296720077.firebaseio.com';
 
   public getLugares(){
-    return this.afDB.list('lugares/');
+    // return this.afDB.list('lugares/');
+    return this.http.get(this.END_POINT+'/lugares.json');
   }
 
   public getLugar(id){
