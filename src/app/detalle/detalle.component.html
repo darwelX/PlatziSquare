@@ -1,3 +1,7 @@
+<div class="well">
+   <a routerLink="/lugares">Lugares</a> / {{lugar.nombre}}
+</div>
+
 <div class="row" *ngIf="lugar.lt">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <agm-map [latitude]="lugar.lt" [longitude]="lugar.lg" [zoom]="17">
@@ -6,9 +10,6 @@
     </div>
 </div>
 <div class="row col-xs-12 col-sm-12 col-md-12 detalles">
-  <div class="well">
-     <a routerLink="/lugares">Lugares</a> / {{lugar.nombre}}
-  </div>
   <h1>{{lugar.nombre}}</h1>
   <hr/>
   <h3>{{lugar.distancia}} km</h3>
