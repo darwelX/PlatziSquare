@@ -1,6 +1,6 @@
 import { LugaresService } from '../services/lugares.service';
 import { Component, OnInit } from '@angular/core';
-
+import  swal  from 'sweetalert';
 @Component({
   selector: 'app-lugares',
   templateUrl: './lugares.component.html',
@@ -12,8 +12,13 @@ export class LugaresComponent implements OnInit {
   lugares: any = null;
   constructor(private lugaresServices: LugaresService) { 
     this.lugaresServices.getLugares()
-    .valueChanges().subscribe(lugares => {
-      this.lugares = lugares;
+    .subscribe(lugares => {
+      if(lugares.status == 200){
+        this.lugares = lugares.json();
+        this.lugares = Object.keys(this.lugares).map((key) => this.lugares[key]);
+      }else{
+        swal('A ocurrido un Error', 'Codigo '+lugares.status, 'error');
+      }
     });
   }
 
