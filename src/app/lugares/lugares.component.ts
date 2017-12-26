@@ -21,6 +21,15 @@ export class LugaresComponent implements OnInit {
         swal('A ocurrido un Error', 'Codigo '+lugares.status, 'error');
       }
     });
+
+    /**
+     * metodo formateado
+     */
+    // this.lugaresServices.getAll()
+    // .subscribe(lugares => {
+    //   let obj = lugares;
+    //   this.lugares= Object.keys(obj).map( (key) => { return obj[key]; });
+    // });
   }
 
   ngOnInit() {
