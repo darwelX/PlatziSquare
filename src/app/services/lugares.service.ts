@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { AngularFireDatabase } from'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Headers } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LugaresService {
@@ -14,12 +15,21 @@ export class LugaresService {
     return this.http.get(this.END_POINT+'/lugares.json');
   }
 
+  public getAll(){
+    // return this.afDB.list('lugares/');
+    return this.http.get(this.END_POINT+'/.json')
+      .map( (response) => {
+        let data = response.json().lugares;
+        return data;
+      })
+  }
+  
   public getLugar(id){
     return this.afDB.object('lugares/'+id);
   }
 
   public guardarLugar(lugar){
-    this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
+    // this.afDB.database.ref('lugares/'+lugar.id).set(lugar);
     let headers = new Headers({"Content-type": "application/json"});
     return this.http.post(this.END_POINT+'/lugares.json', lugar, {headers: headers});
   }
