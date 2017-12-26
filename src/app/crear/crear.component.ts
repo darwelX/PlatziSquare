@@ -40,9 +40,15 @@ export class CrearComponent implements OnInit {
        if (this.action != 'edit'){
          this.lugar.id = Date.now();
          this.lugar.activo = true;
-         this.lugaresServices.guardarLugar(this.lugar);
-         swal('Registro guardado', 'Operacion Exitosa', 'success');
-         this.lugar = {};
+         this.lugaresServices.guardarLugar(this.lugar)
+          .subscribe(result => {
+            if(result.status == 200){
+              swal('Registro guardado', 'Operacion Exitosa', 'success');
+              this.lugar = {};
+            }else{
+              swal('A ocurrido un Error', 'Codigo '+result.status, 'error');
+            }
+          });
        }else{
          this.lugaresServices.updateLugar(this.lugar);
          swal('Registro Actulizado', 'Operacion Exitosa', 'success');
