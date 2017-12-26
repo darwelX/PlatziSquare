@@ -5,7 +5,9 @@
 <div class="row" *ngIf="lugar.lt">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <agm-map [latitude]="lugar.lt" [longitude]="lugar.lg" [zoom]="17">
-            <agm-marker [latitude]="lugar.lt" [longitude]="lugar.lg"></agm-marker>
+            <agm-marker [latitude]="lugar.lt" [longitude]="lugar.lg">
+                    <agm-info-window>{{lugar.nombre}}</agm-info-window>
+            </agm-marker>
         </agm-map>
     </div>
 </div>
