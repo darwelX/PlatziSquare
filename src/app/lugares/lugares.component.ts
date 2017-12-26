@@ -14,8 +14,9 @@ export class LugaresComponent implements OnInit {
     this.lugaresServices.getLugares()
     .subscribe(lugares => {
       if(lugares.status == 200){
-        this.lugares = lugares.json();
-        this.lugares = Object.keys(this.lugares).map((key) => this.lugares[key]);
+        let obj = lugares.json();
+        this.lugares= Object.keys(obj).map( (key) => { return obj[key]; });
+        //this.lugares = Object.keys(this.lugares).map((key) => this.lugares[key]);
       }else{
         swal('A ocurrido un Error', 'Codigo '+lugares.status, 'error');
       }
