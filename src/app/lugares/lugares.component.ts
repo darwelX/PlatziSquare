@@ -20,6 +20,8 @@ export class LugaresComponent implements OnInit {
       }else{
         swal('A ocurrido un Error', 'Codigo '+lugares.status, 'error');
       }
+    }, error => {
+      swal('A ocurrido un Error '+ error.statusText, 'Codigo '+error.status, 'error');
     });
 
     /**
