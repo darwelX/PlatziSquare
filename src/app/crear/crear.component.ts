@@ -34,7 +34,7 @@ export class CrearComponent implements OnInit {
   guardar(){
     let direccion = this.lugar.calle+','+this.lugar.ciudad+','+this.lugar.pais;
     this.lugaresServices.obtenerGeoData(direccion)
-    .subscribe((result)=>{
+    .subscribe( (result)=>{
        this.lugar.lg = result.json().results[0].geometry.location.lng;
        this.lugar.lt = result.json().results[0].geometry.location.lat;
        if (this.action != 'edit'){
@@ -54,6 +54,8 @@ export class CrearComponent implements OnInit {
          swal('Registro Actulizado', 'Operacion Exitosa', 'success');
        }
              
+    }, error => {
+      swal('A ocurrido un Error '+ error.statusText, 'Codigo '+error.status, 'error');
     });
     // console.log(this.lugar);
   }
