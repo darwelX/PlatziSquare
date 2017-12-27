@@ -18,14 +18,15 @@
             <ng-container *ngFor="let lugar of lugares">
                 <!-- ngStyle es directiva de atributo por eso se usa los corchetes -->
                 <li *ngIf="lugar.activo" class="list-group-item">
-                   <a routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}">
+                    <a class="link-sin-decoration" routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}">
                      {{lugar.nombre | uppercase}}
-                     <a routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
-                       <i class="fa fa-pencil"></i>
-                     </a>
+                    </a>
+                    <a class="link-sin-decoration" routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
+                        <i class="fa fa-pencil"></i>
+                    </a>
                      <br>
-                     <small>{{lugar.id | date: 'medium' : locale: 'es'}}</small>
-                   </a>
+                     <small class="text-blue">{{lugar.id | date: 'medium' : locale: 'es'}}</small>
+                     <p class="text-blue">{{lugar.descripcion}}</p>
                 </li>
             </ng-container>
         </ul>
