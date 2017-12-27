@@ -42,3 +42,11 @@ div.datos a{
 agm-map {
   height: 300px;
 }
+
+a.link-sin-decoration:hover{
+  text-decoration: none;
+}
+
+.text-blue{
+  color: #23527c;
+}
