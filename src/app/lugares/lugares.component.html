@@ -19,14 +19,18 @@
                 <!-- ngStyle es directiva de atributo por eso se usa los corchetes -->
                 <li *ngIf="lugar.activo" class="list-group-item">
                     <a class="link-sin-decoration" routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}">
-                     {{lugar.nombre | uppercase}}
+                     <h3>
+                         {{lugar.nombre | uppercase}}
+                         <a class="link-sin-decoration" routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
+                            <i class="fa fa-pencil"></i>
+                         </a>
+                     </h3>
+
                     </a>
-                    <a class="link-sin-decoration" routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
-                        <i class="fa fa-pencil"></i>
-                    </a>
+
                      <br>
                      <small class="text-blue">{{lugar.id | date: 'medium' : locale: 'es'}}</small>
-                     <p class="text-blue">{{lugar.descripcion}}</p>
+                     <p [innerHtml]="lugar.descripcion | linkifystr"></p>
                 </li>
             </ng-container>
         </ul>
