@@ -50,3 +50,14 @@ a.link-sin-decoration:hover{
 .text-blue{
   color: #23527c;
 }
+.start-yellow{
+  color: yellow;
+}
+.font-150{
+  font-size: 150%;
+}
+.cuadrado{
+  width: 200px;
+  height: 200px;
+  background-color: #333;
+}
