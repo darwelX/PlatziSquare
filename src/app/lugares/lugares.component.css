@@ -1,3 +1,62 @@
 agm-map {
   height: 300px;
 }
+
+#pagado {
+  transition: 3s;
+}
+#pagado:hover span.star{
+  animation-name: "crecer";
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes crecer {
+  from{
+    font-size: 150%;
+  }
+  to{
+    font-size: 280%;
+  }
+}
+
+.fadeIn{
+  animation-name: "fade";
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+  opacity: .1;
+}
+
+@keyframes fade {
+  10%{
+    opacity: .1;
+  }
+  20%{
+    opacity: .2;
+  }
+  30%{
+    opacity: .3;
+  }
+  40%{
+    opacity: .4;
+  }
+  50%{
+    opacity: .5;
+  }
+  60%{
+    opacity: .6;
+  }
+  70%{
+    opacity: .7;
+  }
+  80%{
+    opacity: .8;
+  }
+  90%{
+    opacity: .9;
+  }
+  100%{
+    opacity: 1;
+  }
+}
