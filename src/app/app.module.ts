@@ -18,6 +18,7 @@ import { LugaresService } from './services/lugares.service';
 import { environment } from '../environments/environment';
 import { CrearComponent } from './crear/crear.component';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 const appRoutes: Routes = [
   {path: '', component: LugaresComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     LugaresComponent,
     ContactoComponent,
     CrearComponent,
-    LinkifystrPipe
+    LinkifystrPipe,
+    FilterPipe
   ],
 
   //se importa los modulas nativos de angular que va a necesitar la aplicacion
