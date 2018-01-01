@@ -20,15 +20,7 @@ import { CrearComponent } from './crear/crear.component';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 
-const appRoutes: Routes = [
-  {path: '', component: LugaresComponent},
-  {path: 'lugares', component: LugaresComponent},
-  {path: 'detalles/:id', component: DetalleComponent},
-  {path: 'lugares', component: LugaresComponent},
-  {path: 'crear', component: CrearComponent},
-  {path: 'crear/:id', component: CrearComponent},
-  {path: 'contacto', component: ContactoComponent}
-];
+const appRoutes: Routes = environment.rutas;
 
 @NgModule({
   //en este array se agregan los componentes propios que conforman el modulo
