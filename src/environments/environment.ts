@@ -2,6 +2,11 @@
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
+import { DetalleComponent } from '../app/detalle/detalle.component';
+import { LugaresComponent } from '../app/lugares/lugares.component';
+import { ContactoComponent } from '../app/contacto/contacto.component';
+import { LugaresService } from '../app/services/lugares.service';
+import { CrearComponent } from '../app/crear/crear.component';
 
 export const environment = {
   production: false,
@@ -11,5 +16,14 @@ export const environment = {
     databaseURL: "https://platzisquare-1513296720077.firebaseio.com",
     storageBucket: "platzisquare-1513296720077.appspot.com",
     messagingSenderId: "824687402456"
-  }
+  },
+  rutas:  [
+    {path: '', component: LugaresComponent},
+    {path: 'lugares', component: LugaresComponent},
+    {path: 'detalles/:id', component: DetalleComponent},
+    {path: 'lugares', component: LugaresComponent},
+    {path: 'crear', component: CrearComponent},
+    {path: 'crear/:id', component: CrearComponent},
+    {path: 'contacto', component: ContactoComponent}
+  ]
 };
