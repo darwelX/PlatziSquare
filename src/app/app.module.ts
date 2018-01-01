@@ -19,6 +19,9 @@ import { environment } from '../environments/environment';
 import { CrearComponent } from './crear/crear.component';
 import { LinkifystrPipe } from './pipes/linkifystr.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { AutorizacionService } from './services/autorizacion.service';
 
 const appRoutes: Routes = environment.rutas;
 
@@ -31,7 +34,9 @@ const appRoutes: Routes = environment.rutas;
     ContactoComponent,
     CrearComponent,
     LinkifystrPipe,
-    FilterPipe
+    FilterPipe,
+    LoginComponent,
+    RegistroComponent
   ],
 
   //se importa los modulas nativos de angular que va a necesitar la aplicacion
@@ -54,7 +59,8 @@ const appRoutes: Routes = environment.rutas;
 
   //se declaran los servicios propios que se van a necesitar en la aplicacion
   providers: [
-    LugaresService
+    LugaresService,
+    AutorizacionService
   ],
 
   //se declara con que componente se va a iniciar
