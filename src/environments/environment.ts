@@ -7,6 +7,8 @@ import { LugaresComponent } from '../app/lugares/lugares.component';
 import { ContactoComponent } from '../app/contacto/contacto.component';
 import { LugaresService } from '../app/services/lugares.service';
 import { CrearComponent } from '../app/crear/crear.component';
+import { LoginComponent } from '../app/login/login.component';
+import { RegistroComponent } from '../app/registro/registro.component';
 
 export const environment = {
   production: false,
@@ -24,6 +26,8 @@ export const environment = {
     {path: 'lugares', component: LugaresComponent},
     {path: 'crear', component: CrearComponent},
     {path: 'crear/:id', component: CrearComponent},
-    {path: 'contacto', component: ContactoComponent}
+    {path: 'contacto', component: ContactoComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'signup', component: RegistroComponent}
   ]
 };
