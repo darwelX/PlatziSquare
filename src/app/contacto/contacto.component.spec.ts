@@ -1,25 +1,41 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { ContactoComponent } from './contacto.component';
 
+
 describe('ContactoComponent', () => {
-  let component: ContactoComponent;
-  let fixture: ComponentFixture<ContactoComponent>;
-
-  beforeEach(async(() => {
+  let fixture;
+  let el;
+  beforeEach(()=>{
     TestBed.configureTestingModule({
-      declarations: [ ContactoComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
+      declarations: [ContactoComponent]
+    });
     fixture = TestBed.createComponent(ContactoComponent);
-    component = fixture.componentInstance;
+    el = fixture.debugElement.nativeElement;
+  });
+  it('esperando la creación del componente', ()=>{
+    let app = fixture.debugElement.componentInstance;
+    expect(app).toBeTruthy();
+  })
+
+  it('titulo del formulario', () => {
     fixture.detectChanges();
+    expect(el.querySelector('.panel-title').textContent).toContain("Escribenos");
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  it('boton enviar', ()=>{
+    fixture.detectChanges();
+    expect(el.querySelector('.btn-success').textContent).toContain('Enviar');
+  })
+
+  it('boton cancelar', ()=>{
+    fixture.detectChanges();
+    expect(el.querySelector('.btn-default').textContent).toContain('Cancelar');
+  })
+
+  it('labels', ()=>{
+    fixture.detectChanges();
+    let labels = el.querySelectorAll('label');
+    expect(labels[0].textContent).toContain('Nombre');
+  })
 });
