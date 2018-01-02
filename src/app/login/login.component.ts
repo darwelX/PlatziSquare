@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutorizacionService } from '../services/autorizacion.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +10,23 @@ import { AutorizacionService } from '../services/autorizacion.service';
 export class LoginComponent implements OnInit {
 
   login :any = {};
-
-  constructor(private autorizacionService:AutorizacionService) { }
+  id :any = null;
+  constructor(private autorizacionService:AutorizacionService, private route: ActivatedRoute, private router: Router) { 
+    this.id = this.route.snapshot.params['action'];
+    if(this.id == 'logout'){
+      this.salir();
+    }
+  }
 
   ngOnInit() {
   }
 
   signin(email, password){
     this.autorizacionService.login(this.login.username, this.login.password);
+  }
+
+  salir(){
+    this.autorizacionService.logout();
+    this.router.navigate(['login']);
   }
 }
