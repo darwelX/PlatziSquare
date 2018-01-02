@@ -8,12 +8,14 @@ import { AutorizacionService } from '../services/autorizacion.service';
 })
 export class LoginComponent implements OnInit {
 
+  login :any = {};
+
   constructor(private autorizacionService:AutorizacionService) { }
 
   ngOnInit() {
   }
 
   signin(email, password){
-    this.autorizacionService.login('darwel34', '123456');
+    this.autorizacionService.login(this.login.username, this.login.password);
   }
 }
