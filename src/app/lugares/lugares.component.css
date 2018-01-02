@@ -9,6 +9,7 @@ agm-map {
   animation-name: "crecer";
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes crecer {
