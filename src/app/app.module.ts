@@ -22,16 +22,18 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AutorizacionService } from './services/autorizacion.service';
+import { GuardianService } from './services/guardian.service';
 
 const appRoutes: Routes =  [
-  {path: '', component: LugaresComponent},
-  {path: 'lugares', component: LugaresComponent},
-  {path: 'detalles/:id', component: DetalleComponent},
-  {path: 'lugares', component: LugaresComponent},
-  {path: 'crear', component: CrearComponent},
-  {path: 'crear/:id', component: CrearComponent},
-  {path: 'contacto', component: ContactoComponent},
+  {path: '', component: LugaresComponent, canActivate: [GuardianService]},
+  {path: 'lugares', component: LugaresComponent, canActivate: [GuardianService]},
+  {path: 'detalles/:id', component: DetalleComponent, canActivate: [GuardianService]},
+  {path: 'lugares', component: LugaresComponent, canActivate: [GuardianService]},
+  {path: 'crear', component: CrearComponent, canActivate: [GuardianService]},
+  {path: 'crear/:id', component: CrearComponent, canActivate: [GuardianService]},
+  {path: 'contacto', component: ContactoComponent, canActivate: [GuardianService]},
   {path: 'login', component: LoginComponent},
+  {path: 'login/:action', component: LoginComponent},
   {path: 'signup', component: RegistroComponent}
 ];
 
@@ -70,7 +72,8 @@ const appRoutes: Routes =  [
   //se declaran los servicios propios que se van a necesitar en la aplicacion
   providers: [
     LugaresService,
-    AutorizacionService
+    AutorizacionService,
+    GuardianService
   ],
 
   //se declara con que componente se va a iniciar
