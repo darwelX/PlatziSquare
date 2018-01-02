@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
       this.autorizacionService.register(this.registro, (err, response)=>{
         console.log('reponse', response);
         if(err){
-          swal('A ocurrido un Error', 'Error en Sistema','error');
+          swal('A ocurrido un Error', err.message,'error');
         }else{
           if(response.uid){
             this.registro={};
