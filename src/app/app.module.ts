@@ -23,7 +23,17 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AutorizacionService } from './services/autorizacion.service';
 
-const appRoutes: Routes = environment.rutas;
+const appRoutes: Routes =  [
+  {path: '', component: LugaresComponent},
+  {path: 'lugares', component: LugaresComponent},
+  {path: 'detalles/:id', component: DetalleComponent},
+  {path: 'lugares', component: LugaresComponent},
+  {path: 'crear', component: CrearComponent},
+  {path: 'crear/:id', component: CrearComponent},
+  {path: 'contacto', component: ContactoComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: RegistroComponent}
+];
 
 @NgModule({
   //en este array se agregan los componentes propios que conforman el modulo
