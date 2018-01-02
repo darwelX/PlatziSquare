@@ -18,16 +18,5 @@ export const environment = {
     databaseURL: "https://platzisquare-1513296720077.firebaseio.com",
     storageBucket: "platzisquare-1513296720077.appspot.com",
     messagingSenderId: "824687402456"
-  },
-  rutas:  [
-    {path: '', component: LugaresComponent},
-    {path: 'lugares', component: LugaresComponent},
-    {path: 'detalles/:id', component: DetalleComponent},
-    {path: 'lugares', component: LugaresComponent},
-    {path: 'crear', component: CrearComponent},
-    {path: 'crear/:id', component: CrearComponent},
-    {path: 'contacto', component: ContactoComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'signup', component: RegistroComponent}
-  ]
+  }
 };
