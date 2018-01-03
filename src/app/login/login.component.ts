@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AutorizacionService } from '../services/autorizacion.service';
+import  swal  from 'sweetalert';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -28,5 +29,16 @@ export class LoginComponent implements OnInit {
   salir(){
     this.autorizacionService.logout();
     this.router.navigate(['login']);
+  }
+
+  loggingWithFacebook(){
+    this.autorizacionService.loggingFacebook((err, response)=>{
+      if(err){
+        swal('Ha ocurrido un Error', err.message, 'error')
+      }else{
+        // console.log(response);
+        this.router.navigate(['lugares']);
+      }
+    });
   }
 }
