@@ -18,7 +18,7 @@ export class AppComponent {
           this.loggedIn = true;
           let email = result.email;
           this.userName = email.substring(0,email.lastIndexOf('@'));
-          this.router.navigate(['lugares']);
+          this.router.navigate(['']);
         }else{
           this.loggedIn = false;
         }
