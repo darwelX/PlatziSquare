@@ -24,13 +24,14 @@ export class AutorizacionService {
       });
 
   }
-  public login = (username, password) => {
+  public login = (username, password, callback) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword(username, password)
       .then((response)=>{
         this.router.navigate(['lugares']);
+        callback(null, JSON.parse(JSON.stringify(response)));
       })
       .catch((error)=>{
-        swal('Ha ocurrido un Error', error.message, 'error')
+        callback(new Error(`Error - ( ${error.message} )`))
       })
   }
   public register = (user, callback) => {
