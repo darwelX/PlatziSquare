@@ -56,15 +56,16 @@ export class LugaresComponent implements OnInit {
   constructor(private lugaresServices: LugaresService) { 
     registerLocaleData(localeEs, 'es', localeEsExtra);
     this.lugaresServices.getLugares()
-    .subscribe(lugares => {
-      if(lugares.status == 200){
-        let obj = lugares.json();
-        this.lugares= Object.keys(obj).map( (key) => { return obj[key]; });
+    .valueChanges().subscribe(lugares => {
+      // if(lugares.status == 200){
+        // let obj = lugares.json();
+        // this.lugares= Object.keys(obj).map( (key) => { return obj[key]; });
         //this.lugares = Object.keys(this.lugares).map((key) => this.lugares[key]);
         // this.state='final';
-      }else{
-        swal('A ocurrido un Error', 'Codigo '+lugares.status, 'error');
-      }
+      // }else{
+      //   swal('A ocurrido un Error', 'Codigo '+lugares.status, 'error');
+      // }
+      this.lugares = lugares;
     }, error => {
       swal('A ocurrido un Error '+ error.statusText, 'Codigo '+error.status, 'error');
     });
