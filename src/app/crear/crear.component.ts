@@ -53,8 +53,6 @@ export class CrearComponent implements OnInit {
     let direccion = this.lugar.calle+','+this.lugar.ciudad+','+this.lugar.pais;
     this.lugaresServices.obtenerGeoData(direccion)
     .subscribe( (result)=>{
-       this.lugar.lg = result.json().results[0].geometry.location.lng;
-       this.lugar.lt = result.json().results[0].geometry.location.lat;
        if (this.action != 'edit'){
          this.lugar.id = Date.now();
          this.lugar.activo = true;
@@ -82,7 +80,7 @@ export class CrearComponent implements OnInit {
   }
 
   obtenerDireccion(result) {
-    // console.log(result);
+    console.log(result);
     const addressComponents = result.address_components;
     const adrressParams: any = {};
     for (let i = 0, len = addressComponents.length; i < len; i++) {
@@ -106,5 +104,7 @@ export class CrearComponent implements OnInit {
     this.lugar.calle = (!adrressParams.route && !adrressParams.street_number)? adrressParams.locality : `${(adrressParams.route)? adrressParams.route: ''} ${(adrressParams.street_number)?adrressParams.street_number:''}`;
     this.lugar.ciudad = adrressParams.locality;
     this.lugar.pais = adrressParams.country;
+    this.lugar.lg = result.geometry.location.lng;
+    this.lugar.lt = result.geometry.location.lat;
   }
 }
