@@ -2,6 +2,10 @@ import { LugaresService } from '../services/lugares.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert';
+import { Observable } from 'rxjs';
+import 'rxjs/Rx';
+import { Http } from '@angular/http';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-crear',
@@ -11,13 +15,27 @@ import swal from 'sweetalert';
 export class CrearComponent implements OnInit {
   lugar: any = {};
   action: any = null;
-
-  constructor(private lugaresServices: LugaresService, private route: ActivatedRoute) { 
+  result$: Observable<any>;
+  private searchField: FormControl;
+  constructor(private lugaresServices: LugaresService, private route: ActivatedRoute, private http: Http) { 
     // debugger;
     this.action = this.route.snapshot.queryParams['action'];
     if(this.action == 'edit'){
       this.buscar()
     }
+    const URL = 'http://maps.google.com/maps/api/geocode/json';
+    this.searchField = new FormControl();
+    this.result$ = this.searchField.valueChanges
+      .debounceTime(500)
+      .switchMap( (query) => {
+        if(query.length > 0){
+          return this.http.get(`${URL}?address=${query}`)
+        }else{
+          return [];
+        }
+      })
+      .map(response => response.json())
+      .map(response => response.results);
   }
 
   ngOnInit() {
@@ -61,5 +79,32 @@ export class CrearComponent implements OnInit {
       swal('A ocurrido un Error '+ error.statusText, 'Codigo '+error.status, 'error');
     });
     // console.log(this.lugar);
+  }
+
+  obtenerDireccion(result) {
+    // console.log(result);
+    const addressComponents = result.address_components;
+    const adrressParams: any = {};
+    for (let i = 0, len = addressComponents.length; i < len; i++) {
+      const type = addressComponents[i].types[0].toString();
+      switch (type) {
+        case'street_number':
+          adrressParams.street_number = addressComponents[i].long_name;
+          break;
+        case'route':
+          adrressParams.route = addressComponents[i].long_name;
+          break;
+        case'locality':
+          adrressParams.locality = addressComponents[i].long_name;
+          break;
+        case'country':
+          adrressParams.country = addressComponents[i].long_name;
+          break;
+      }
+    }
+    
+    this.lugar.calle = (!adrressParams.route && !adrressParams.street_number)? adrressParams.locality : `${(adrressParams.route)? adrressParams.route: ''} ${(adrressParams.street_number)?adrressParams.street_number:''}`;
+    this.lugar.ciudad = adrressParams.locality;
+    this.lugar.pais = adrressParams.country;
   }
 }
