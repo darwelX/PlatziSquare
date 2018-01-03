@@ -13,8 +13,8 @@ export class LugaresService {
   ls:any;
 
   public getLugares(){
-    // return this.afDB.list('lugares/');
-    return this.http.get(this.END_POINT+'/lugares.json?auth='+this.ls.stsTokenManager.accessToken);
+    return this.afDB.list('lugares/');
+    // return this.http.get(this.END_POINT+'/lugares.json?auth='+this.ls.stsTokenManager.accessToken);
   }
 
   public getAll(){
