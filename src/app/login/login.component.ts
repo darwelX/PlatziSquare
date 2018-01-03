@@ -23,7 +23,14 @@ export class LoginComponent implements OnInit {
   }
 
   signin(email, password){
-    this.autorizacionService.login(this.login.username, this.login.password);
+    this.autorizacionService.login(this.login.username, this.login.password, (err, response)=>{
+      if(err){
+        swal('Ha ocurrido un Error', err.message, 'error')
+      }else{
+        // console.log(response);
+        this.router.navigate(['lugares']);
+      }
+    });
   }
 
   salir(){
