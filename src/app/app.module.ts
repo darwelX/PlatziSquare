@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import {Routes, RouterModule} from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
@@ -56,6 +56,7 @@ const appRoutes: Routes =  [
     BrowserModule,
     //necesario para usar el data binding bidireccional
     FormsModule,
+    ReactiveFormsModule,
     // modulo de google maps
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyD_WGF3n-7hURPte4-4LXr7uSEHZJXXAKg'
