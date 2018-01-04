@@ -61,3 +61,45 @@ a.link-sin-decoration:hover{
   height: 200px;
   background-color: #333;
 }
+button{
+  overflow: hidden;
+  padding: 10px 35px !important;
+}
+ .btn-crear{
+    margin-top: -3.9em;
+ }
+
+ .btn-crear:before {
+   font-family: FontAwesome;
+   content: '\f0fe';
+   position: absolute;
+
+   left: 340px;
+   transition: all 200ms ease-in-out;
+   color: transparent;
+ }
+
+ .btn-crear:hover:before{
+   left: 375px;
+   color: white;
+ }
+
+ @media (max-width: 991px) and (min-width: 768px){
+  button{
+    overflow: hidden;
+    padding: 10px 35px !important;
+  }
+   .btn-crear{
+      margin-top: -2.9em;
+   }
+ }
+
+ @media (max-width: 767px) {
+  button{
+    overflow: hidden;
+    padding: 10px 35px !important;
+  }
+   .btn-crear{
+      margin-top: -2.9em;
+   }
+ }
