@@ -13,31 +13,41 @@
 </div>
 <a class="btn btn-default" (click)="animar()">Animar</a> -->
 <hr>
-<div class="btn-crear"> <a routerLink="/crear" [queryParams]="{action: 'new'}" class="btn btn-primary crear">Crear Nuevo Lugar</a></div>
-<hr>
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-6">
-        <h2>Lugares Cercanos</h2>
-        <ul class="list-group">
-            <ng-container *ngFor="let lugar of lugares | filter: 'plan': 'gratuito'">
-                <!-- ngStyle es directiva de atributo por eso se usa los corchetes -->
-                <li *ngIf="lugar.activo" class="list-group-item">
-                    <a class="link-sin-decoration" routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}">
-                     <h3>
-                         {{lugar.nombre | uppercase}}
-                         <a class="link-sin-decoration" routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
-                            <span class="fa fa-pencil pull-left"></span>
-                         </a>
-                     </h3>
-                    </a>
-
-                     <br>
-                     <small class="text-blue">{{lugar.id | date: 'medium' : locale: 'es'}}</small>
-                     <p [innerHtml]="lugar.descripcion | linkifystr"></p>
-                </li>
-            </ng-container>
-        </ul>
-    </div>
+        <div class="panel panel-default">
+            <div class="panel-heading panel-head-icon-lf">
+                <div class="panel-title">
+                    <h4>Lugares Cercanos</h4>
+                    <div class="pull-right"> 
+                        <button routerLink="/crear" [queryParams]="{action: 'new'}" class="btn btn-primary btn-crear hidden-sm hidden-xs">Crear Nuevo Lugar</button>
+                        <button routerLink="/crear" [queryParams]="{action: 'new'}" class="btn btn-primary btn-crear visible-sm visible-xs"><span class="fa fa-plus-square"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <ng-container *ngFor="let lugar of lugares | filter: 'plan': 'gratuito'">
+                        <!-- ngStyle es directiva de atributo por eso se usa los corchetes -->
+                        <li *ngIf="lugar.activo" class="list-group-item">
+                            <a class="link-sin-decoration" routerLink="/detalles/{{lugar.id}}" [queryParams]="{action: 'view'}">
+                                <h3>
+                                    {{lugar.nombre | uppercase}}
+                                    <a class="link-sin-decoration" routerLink="/crear/{{lugar.id}}" [queryParams]="{action: 'edit'}" title="Editar">
+                                        <span class="fa fa-pencil pull-left"></span>
+                                    </a>
+                                </h3>
+                            </a>
+                            
+                            <br>
+                            <small class="text-blue">{{lugar.id | date: 'medium' : locale: 'es'}}</small>
+                            <p [innerHtml]="lugar.descripcion | linkifystr"></p>
+                        </li>
+                    </ng-container>
+                </ul>
+            </div>
+            </div>
+        </div>
     <div class="col-xs-12 col-sm-6 col-md-6">
         <h2>Destacados</h2>
         <ul class="list-group fadeIn">
