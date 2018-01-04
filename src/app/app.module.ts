@@ -10,6 +10,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HttpModule } from '@angular/http';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
@@ -74,7 +75,8 @@ const appRoutes: Routes =  [
   providers: [
     LugaresService,
     AutorizacionService,
-    GuardianService
+    GuardianService,
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
 
   //se declara con que componente se va a iniciar
