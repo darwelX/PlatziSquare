@@ -11,6 +11,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HttpModule } from '@angular/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgHttpLoaderModule } from 'ng-http-loader/ng-http-loader.module';
+import { ToasterModule } from 'angular2-toaster';
 
 import { DetalleComponent } from './detalle/detalle.component';
 import { LugaresComponent } from './lugares/lugares.component';
@@ -24,6 +27,8 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AutorizacionService } from './services/autorizacion.service';
 import { GuardianService } from './services/guardian.service';
+import { MyInterceptorService } from './services/my-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 const appRoutes: Routes =  [
   {path: '', component: LugaresComponent, canActivate: [GuardianService]},
@@ -68,7 +73,10 @@ const appRoutes: Routes =  [
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFireDatabaseModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule,
+    NgHttpLoaderModule,
+    ToasterModule
   ],
 
   //se declaran los servicios propios que se van a necesitar en la aplicacion
@@ -76,6 +84,7 @@ const appRoutes: Routes =  [
     LugaresService,
     AutorizacionService,
     GuardianService,
+    {provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true},
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
 
