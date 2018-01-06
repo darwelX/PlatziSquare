@@ -4,8 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
+import { ApiResponse } from '../interfaces/api-response';
 import { Http } from '@angular/http';
 import { FormControl } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-crear',
@@ -17,7 +19,7 @@ export class CrearComponent implements OnInit {
   action: any = null;
   result$: Observable<any>;
   private searchField: FormControl;
-  constructor(private lugaresServices: LugaresService, private route: ActivatedRoute, private http: Http) { 
+  constructor(private lugaresServices: LugaresService, private route: ActivatedRoute, private http: HttpClient) { 
     // debugger;
     this.action = this.route.snapshot.queryParams['action'];
     if(this.action == 'edit'){
@@ -34,8 +36,8 @@ export class CrearComponent implements OnInit {
           return [];
         }
       })
-      .map(response => response.json())
-      .map(response => response.results);
+      // .map(response => response.json())
+      .map((response: ApiResponse) => response.results);
   }
 
   ngOnInit() {
