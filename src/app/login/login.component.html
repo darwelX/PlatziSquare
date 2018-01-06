@@ -23,9 +23,16 @@
           <hr>
 
           <div class="form-group text-center">
-            <button class="btn btn-warning btn-block" (click)="signin()">Entrar</button>
-            <button class="btn btn-primary btn-block" (click)="loggingWithFacebook()"><i class="fa fa-facebook fa-2x"></i></button>
-            <button class="btn btn-info btn-block" routerLink="/">Cancelar</button>
+            <button class="btn btn-success btn-block" (click)="signin()">Entrar</button>
+            <button class="btn btn-primary btn-block" (click)="loggingWithFacebook()">
+              Login con Facebook
+              <i class="fa fa-facebook size-180"></i>
+            </button>
+            <button class="btn btn-info btn-block" (click)="loggingWithTwitter()">
+              Login con Twiter
+              <i class="fa fa-twitter size-180"></i>
+            </button>
+            <button class="btn btn-default btn-block" routerLink="/">Cancelar</button>
           </div>
         </form>
       </div>
