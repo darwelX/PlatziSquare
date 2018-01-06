@@ -48,4 +48,15 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+
+  loggingWithTwitter(){
+    this.autorizacionService.loggingTwitter((err, response)=>{
+      if(err){
+        swal('Ha ocurrido un Error', err.message, 'error')
+      }else{
+        // console.log(response);
+        this.router.navigate(['lugares']);
+      }
+    });
+  }
 }
