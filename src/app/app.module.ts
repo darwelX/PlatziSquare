@@ -44,7 +44,8 @@ const appRoutes: Routes =  [
 ];
 
 @NgModule({
-  //en este array se agregan los componentes propios que conforman el modulo
+  // en este array se agregan las vistas del modulo, existen tres tipos de vistas
+  // componente, directivas y los pipes
   declarations: [
     AppComponent,
     DetalleComponent,
@@ -57,11 +58,13 @@ const appRoutes: Routes =  [
     RegistroComponent
   ],
 
-  //se importa los modulas nativos de angular que va a necesitar la aplicacion
+  // se importa los modulas nativos de angular que va a necesitar la aplicacion
+  // toda aquella dependecia o paquete 
   imports: [
     BrowserModule,
-    //necesario para usar el data binding bidireccional
+    // necesario para usar el data binding bidireccional
     FormsModule,
+    // necesario para usar JSrX
     ReactiveFormsModule,
     // modulo de google maps
     AgmCoreModule.forRoot({
@@ -73,22 +76,28 @@ const appRoutes: Routes =  [
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFireDatabaseModule,
+    // utilizado para acer peticiones http
     HttpModule,
     HttpClientModule,
+    // utilizado para intercetar peticiones http
     NgHttpLoaderModule,
     ToasterModule
   ],
 
-  //se declaran los servicios propios que se van a necesitar en la aplicacion
+  // se declaran todos los servicios utilizado por el modulo en todos los
+  // componentes y asi inyectarlos en todos los componentes
   providers: [
     LugaresService,
     AutorizacionService,
     GuardianService,
+    // intercepta peticiones http
     {provide: HTTP_INTERCEPTORS, useClass: MyInterceptorService, multi: true},
+    // utilizado para el manejo de url para no perderce al hacer refresh de la pagina
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
 
-  //se declara con que componente se va a iniciar
+  // se define la vista raiz de la aplicación y su lugar lo ocupa el
+  // modulo raiz
   bootstrap: [AppComponent]
 })
 export class AppModule { }
