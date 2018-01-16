@@ -9,27 +9,27 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AutorizacionService {
 
-  constructor(private angularFireAuth: AngularFireAuth, private afDB: AngularFireDatabase, private router: Router) { 
+  constructor(private angularFireAuth: AngularFireAuth, private afDB: AngularFireDatabase, private router: Router) {
     this.isLogged();
   }
 
-  public loggingTwitter = (callback)=>{
+  public loggingTwitter = (callback) => {
     this.angularFireAuth.auth.signInWithPopup(new firebase.auth.TwitterAuthProvider())
-      .then( (result)=>{
+      .then( (result) => {
         return callback(null, JSON.parse(JSON.stringify(result)));
       })
-      .catch((error)=>{
+      .catch((error) => {
         return callback(new Error(`Error - ( ${error.message} )`));
       });
   }
 
   public loggingFacebook = (callback) => {
     this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
-      .then( (result)=>{
+      .then( (result) => {
         // console.log(result);
         return callback(null, JSON.parse(JSON.stringify(result)));
       })
-      .catch((error)=>{
+      .catch((error) => {
         // console.log(error);
         return callback(new Error(`Error - ( ${error.message} )`));
       });
@@ -37,30 +37,30 @@ export class AutorizacionService {
   }
   public login = (username, password, callback) => {
     this.angularFireAuth.auth.signInWithEmailAndPassword(username, password)
-      .then((response)=>{
+      .then((response) => {
         this.router.navigate(['lugares']);
         callback(null, JSON.parse(JSON.stringify(response)));
       })
-      .catch((error)=>{
-        callback(new Error(`Error - ( ${error.message} )`))
-      })
+      .catch((error) => {
+        callback(new Error(`Error - ( ${error.message} )`));
+      });
   }
   public register = (user, callback) => {
-    let respuesta = {}
+    const respuesta = {};
     this.angularFireAuth.auth.createUserWithEmailAndPassword(user.username, user.password)
-    .then((response)=>{
-      let id = this.angularFireAuth.auth.currentUser.uid;
+    .then((response) => {
+      const id = this.angularFireAuth.auth.currentUser.uid;
       this.afDB.database.ref('Users').child(id).set({
         activo: 1
-      })
+      });
       callback(null, JSON.parse(JSON.stringify(response)));
     })
-    .catch((error)=>{
-      callback(new Error(`Error - ( ${error.message} )`))
+    .catch((error) => {
+      callback(new Error(`Error - ( ${error.message} )`));
     });
   }
 
-  public logout = ()=>{
+  public logout = () => {
     this.angularFireAuth.auth.signOut();
   }
 

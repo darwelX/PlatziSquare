@@ -59,8 +59,8 @@ const appRoutes: Routes =  [
   ],
 
   // se importa los modulas nativos de angular que va a necesitar la aplicacion
-  // toda aquella dependecia o paquete 
-  imports: [
+  // toda aquella dependecia o paquete
+  imports : [
     BrowserModule,
     // necesario para usar el data binding bidireccional
     FormsModule,
